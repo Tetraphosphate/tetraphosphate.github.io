@@ -622,7 +622,6 @@
 <script>
     
 document.getElementById("javascript-required").style.display = "none"; // only show the message if javascript is not supported
-document.getElementById("help").style.display = "none";
 document.getElementById("filters").style.display = "none";
 document.getElementById("about").style.display = "none";
     
@@ -667,7 +666,7 @@ function toggleDescription() {
         }
     }
 }
-var helpHidden = true;
+var helpHidden = false;
 function toggleHelp() {
     if (helpHidden == true) {
         // show it
