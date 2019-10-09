@@ -31,8 +31,8 @@
                 <p>> Hover over an image (or tap, on a mobile device) to view more details. Or click on "Show/Hide Image Descriptions" to show or hide them all.</p>
                 <p>> Clicking on the name of an image will open it in a new tab.</p>
                 <p>> Clicking on one of the tags will show all images with that tag.</p>
-                <p>> The images with the checkerboard pattern behind them have partially transparent pixels in them (i.e. has an alpha channel as well as RGB).</p>
-                <img src="./images/transparent-example.png" class="inline-image">
+                <p>> The images with the checkerboard pattern behind them have partially transparent pixels in them (i.e. has an alpha channel as well as RGB). <span id="toggle-transparent-example" onclick="toggleTransparentExample()" class="fakelink">Click here to show example.</span></p>
+                <img src="./images/transparent-example.png" id="transparent-example" class="inline-image">
                 <p>> This site is entirely cookie free, but not bug free. If you find any bugs or glitches please let me know! (contact info under "About Me")</p>
             </div>
             
@@ -624,6 +624,7 @@
 document.getElementById("javascript-required").style.display = "none"; // only show the message if javascript is not supported
 document.getElementById("filters").style.display = "none";
 document.getElementById("about").style.display = "none";
+document.getElementById("transparent-example").style.display = "none";
     
 document.getElementById("tag-instruments").style.display = "none";
 document.getElementById("tag-colours").style.display = "none";
@@ -644,6 +645,21 @@ function toggle(element) {
         element.style.display = "none";
         document.getElementById(parent).innerHTML = "↓ " + document.getElementById(parent).innerHTML.substr(2);
         document.getElementById(parent).classList.remove("pink-text");
+    }
+}
+    
+var transparentExampleHidden = true;
+function toggleTransparentExample() {
+    if (transparentExampleHidden == true) {
+        // show it
+        document.getElementById("toggle-transparent-example").innerHTML = "Click here to hide example.";
+        document.getElementById("transparent-example").style.display = "block";
+        transparentExampleHidden = false;
+    } else {
+        // hide it
+        document.getElementById("toggle-transparent-example").innerHTML = "Click here to show example.";
+        document.getElementById("transparent-example").style.display = "none";
+        transparentExampleHidden = true;
     }
 }
     
