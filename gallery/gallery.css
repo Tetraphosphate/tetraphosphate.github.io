@@ -1,7 +1,7 @@
 :root {
     --colour: #f04937;
     --highlight: #f0493733;
-    --grid: #f0493722;
+    --grid: #ffffff; /* f0493722 */
 }
 
 .inline-image {
