@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Art Gallery | Tetraphosphate.github.io</title>
+    <link rel="stylesheet" type="text/css" href="gallery.css">
+    <link rel="icon" type="image/x-icon" href="../../../perm-resources/old.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+    <div class="page">
+    
+        <div class="section">
+            <h1 id="page-title"><span class="pink-highlight">Tetraphosphate's Art Gallery</span></h1>
+            
+            <p id="navigation">
+                <span id="toggle-description" class="linkblock" onclick="toggleDescription()">Show Image Descriptions</span>
+                <span id="toggle-help" class="linkblock" onclick="toggleHelp()">Help</span>
+                <span id="toggle-about" class="linkblock" onclick="toggleAbout()">About Me</span>
+                <span id="toggle-filters" class="linkblock" onclick="toggleFilters()">Filters</span>
+            </p>
+            
+            <div id="welcome" class="paragraph">
+                <p id="javascript-required">> This website uses JavaScript. If you can see this sentence, your browser does not support JavaScript and some features of this site may not work properly.</p>
+            </div>
+            
+            <div id="help" class="paragraph">
+                <h3 onclick="toggleHelp()">Help (and other info)</h3>
+                <p>> Hover over an image (or tap, on a mobile device) to view more details. Or click on "Show/Hide Image Descriptions" to show or hide them all.</p>
+                <p>> Clicking on the name of an image will open it in a new tab.</p>
+                <p>> Clicking on one of the tags will show all images with that tag.</p>
+                <p>> The images with a pink stripe behind them have partially transparent pixels in them.</p>
+                <p>> This site is entirely cookie free, but not bug free. If you find any bugs or glitches please let me know! (contact info under "About Me")</p>
+            </div>
+            
+            <div id="about" class="paragraph">
+                <h3 onclick="toggleAbout()">About Me</h3>
+                <p>> Hi, I'm Janice! Welcome to my art gallery, I post my pixel art here, and I've kinda run out of things to say now sooooo yeah</p>
+                <p>> The art here is posted in chronological order, with the most recent at the top. I'll add more art periodically so be sure to check back often.</p>
+                <p>> The artworks on this website are licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. Click on the link to find out more.</p>
+                <p>> Contact: I'm Tetraphosphate#0670 on Discord, or email me at janice dot c dot chung at gmail dot com, replacing "dot" and "at" with . and @ respectively.</p>
+            </div>
+
+        <div id="filters" class="side">
+            <h3 onclick="toggleFilters()">Filters</h3>
+            <p>Click on a tag to view images tagged with that tag.</p>
+            <p>> Selected: <span id="selected">none</span></p>
+            <div class="filter-category">
+                <p id="instruments" onclick="toggle('tag-instruments')">↓ Instruments</p>
+                <div id="tag-instruments" class="filter-list">
+                    <p class="tag-name" onclick="goToTag('cimbasso')">> cimbasso</p>
+                    <p class="tag-name" onclick="goToTag('alto-trombone')">> alto-trombone</p>
+                    <p class="tag-name" onclick="goToTag('tenor-trombone')">> tenor-trombone</p>
+                    <p class="tag-name" onclick="goToTag('trombone')">> trombone</p>
+                    <p class="tag-name" onclick="goToTag('trumpet')">> trumpet</p>
+                </div>
+            </div>
+                
+                <div class="filter-category">
+                    <p id="colours" onclick="toggle('tag-colours')">↓ Colour/Material</p>
+                    <div id="tag-colours" class="filter-list">
+                        <p class="tag-name" onclick="goToTag('red')">> red</p>
+                        <p class="tag-name" onclick="goToTag('purple')">> purple</p>
+                        <p class="tag-name" onclick="goToTag('carbon-fibre')">> carbon-fibre</p>
+                        <p class="tag-name" onclick="goToTag('silver')">> silver</p>
+                        <p class="tag-name" onclick="goToTag('yellow-brass')">> yellow-brass</p>
+                        <p class="tag-name" onclick="goToTag('gold-brass')">> gold-brass</p>
+                        <p class="tag-name" onclick="goToTag('red-brass')">> red-brass</p>
+                        <p class="tag-name" onclick="goToTag('glass')">> glass</p>
+                    </div>
+                </div>
+                
+                <div class="filter-category">
+                    <p id="types" onclick="toggle('tag-types')">↓ Instrument Family</p>
+                    <div id="tag-types" class="filter-list">
+                        <p class="tag-name" onclick="goToTag('brass')">> brass</p>
+                    </div>
+                </div>
+            
+                <div class="filter-category">
+                    <p id="brands" onclick="toggle('tag-brands')">↓ Instrument Brands</p>
+                    <div id="tag-brands" class="filter-list">
+                        <p class="tag-name" onclick="goToTag('butler')">> butler</p>
+                        <p class="tag-name" onclick="goToTag('king')">> king</p>
+                        <p class="tag-name" onclick="goToTag('pbone')">> pbone</p>
+                        <p class="tag-name" onclick="goToTag('pbone-mini')">> pbone-mini</p>
+                    </div>
+                </div>
+                
+                <div class="filter-category">
+                    <p id="other" onclick="toggle('tag-other')">↓ Other Tags</p>
+                    <div id="tag-other" class="filter-list">
+                        <p class="tag-name" onclick="goToTag('fire')">> fire</p>
+                        <p class="tag-name" onclick="goToTag('transparent')">> transparent</p>
+                        <p class="tag-name" onclick="goToTag('real')">> real (it's based off an actual instrument model)</p>
+                        <p class="tag-name" onclick="goToTag('phantom-of-the-opera')">> phantom-of-the-opera</p>
+                    </div>
+                </div>
+                
+                <p id="reset-tags" onclick="resetTags()">> Reset Filters</p>
+            </div>
+        </div>
+        
+        <div class="gallery-wrapper">
+            <div class="gallery">
+                
+                <div class="item-wrapper tenor-trombone trombone brass glass transparent">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/glass-tenor-trombone.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('glass-tenor-trombone')">Glass Trombone</h3>
+                        <p class="tooltip-description">> Not the most durable. But that's why you have pBones.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('tenor-trombone')">tenor-trombone</span>
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('glass')">glass</span>
+                            <span class="tag" onclick="goToTag('transparent')">transparent</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper cimbasso brass yellow-brass">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/cimbasso.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('cimbasso')">Cimbasso</h3>
+                        <p class="tooltip-description">> I'm not too happy with this; might make a better version later.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('cimbasso')">cimbasso</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('yellow-brass')">yellow-brass</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper alto-trombone trombone brass pbone pbone-mini blue real">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/blue-pbone-mini.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('blue-pbone-mini')">Blue pBone Mini</h3>
+                        <p class="tooltip-description">> A blue plastic alto trombone.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('alto-trombone')">alto-trombone</span>
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('pbone')">pbone</span>
+                            <span class="tag" onclick="goToTag('pbone-mini')">pbone-mini</span>
+                            <span class="tag" onclick="goToTag('blue')">blue</span>
+                            <span class="tag" onclick="goToTag('real')">real</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper tenor-trombone trombone brass pbone blue real">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/blue-pbone.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('blue-pbone')">Blue pBone</h3>
+                        <p class="tooltip-description">> A blue plastic tenor trombone.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('tenor-trombone')">tenor-trombone</span>
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('pbone')">pbone</span>
+                            <span class="tag" onclick="goToTag('blue')">blue</span>
+                            <span class="tag" onclick="goToTag('real')">real</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper tenor-trombone trombone brass carbon-fibre butler real">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/carbon-fibre-tenor-trombone-grey.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('carbon-fibre-tenor-trombone-grey')">Carbon Fibre Trombone</h3>
+                        <p class="tooltip-description">> My second attempt at making a carbon fibre trombone.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('tenor-trombone')">tenor-trombone</span>
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('carbon-fibre')">carbon-fibre</span>
+                            <span class="tag" onclick="goToTag('butler')">butler</span>
+                            <span class="tag" onclick="goToTag('real')">real</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper tenor-trombone trombone brass carbon-fibre butler real">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/carbon-fibre-tenor-trombone-yellow.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('carbon-fibre-tenor-trombone-yellow')">Carbon Fibre Trombone</h3>
+                        <p class="tooltip-description">> Based off the Butler carbon fibre trombones.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('tenor-trombone')">tenor-trombone</span>
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('carbon-fibre')">carbon-fibre</span>
+                            <span class="tag" onclick="goToTag('butler')">butler</span>
+                            <span class="tag" onclick="goToTag('real')">real</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper tenor-trombone trombone brass gold-brass silver king real transparent">
+                    <div class="background">
+                    <img src="../../../perm-resources/images/gallery/custom-tenor-trombone.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('custom-tenor-trombone')">Custom Tenor Trombone</h3>
+                        <p class="tooltip-description">> I made this for someone on my Discord server, it's based off their own trombone. 7.5" gold brass bell, nickel silver outer slide, and it's possibly a King trombone.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('tenor-trombone')">tenor-trombone</span>
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('gold-brass')">gold-brass</span>
+                            <span class="tag" onclick="goToTag('silver')">silver</span>
+                            <span class="tag" onclick="goToTag('king')">king</span>
+                            <span class="tag" onclick="goToTag('real')">real</span>
+                            <span class="tag" onclick="goToTag('transparent')">transparent</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper tenor-trombone trombone brass yellow-brass">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/tenor-trombone-large-bell.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('tenor-trombone-large-bell')">Larger Bell Tenor</h3>
+                        <p class="tooltip-description">> Made this as an experiment. It's got a 8.5 or 9" bell, while the others have 8" ones.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('tenor-trombone')">tenor-trombone</span>
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('yellow-brass')">yellow-brass</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper tenor-trombone trombone brass red-brass">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/red-brass-tenor-trombone.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('red-brass-tenor-trombone')">Red Brass Bell</h3>
+                        <p class="tooltip-description">> Tenor trombone with a red brass bell.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('tenor-trombone')">tenor-trombone</span>
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('red-brass')">red-brass</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper tenor-trombone trombone brass gold-brass">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/gold-brass-tenor-trombone.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('gold-brass-tenor-trombone')">Gold Brass Bell</h3>
+                        <p class="tooltip-description">> Tenor trombone with a gold brass bell.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('tenor-trombone')">tenor-trombone</span>
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('gold-brass')">gold-brass</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper alto-trombone trombone brass pbone pbone-mini purple real">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/purple-pbone-mini.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('purple-pbone-mini')">Purple pBone Mini</h3>
+                        <p class="tooltip-description">> A purple plastic alto trombone.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('alto-trombone')">alto-trombone</span>
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('pbone')">pbone</span>
+                            <span class="tag" onclick="goToTag('pbone-mini')">pbone-mini</span>
+                            <span class="tag" onclick="goToTag('purple')">purple</span>
+                            <span class="tag" onclick="goToTag('real')">real</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper tenor-trombone trombone brass pbone purple real">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/purple-pbone.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('purple-pbone')">Purple pBone</h3>
+                        <p class="tooltip-description">> A purple plastic tenor trombone.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('tenor-trombone')">tenor-trombone</span>
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('pbone')">pbone</span>
+                            <span class="tag" onclick="goToTag('purple')">purple</span>
+                            <span class="tag" onclick="goToTag('real')">real</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper alto-trombone trombone brass pbone pbone-mini red real">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/red-pbone-mini.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('red-pbone-mini')">Red pBone Mini</h3>
+                        <p class="tooltip-description">> A red plastic alto trombone.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('alto-trombone')">alto-trombone</span>
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('pbone')">pbone</span>
+                            <span class="tag" onclick="goToTag('pbone-mini')">pbone-mini</span>
+                            <span class="tag" onclick="goToTag('red')">red</span>
+                            <span class="tag" onclick="goToTag('real')">real</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper tenor-trombone trombone brass pbone red real">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/red-pbone.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('red-pbone')">Red pBone</h3>
+                        <p class="tooltip-description">> A red plastic tenor trombone.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('tenor-trombone')">tenor-trombone</span>
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('pbone')">pbone</span>
+                            <span class="tag" onclick="goToTag('red')">red</span>
+                            <span class="tag" onclick="goToTag('real')">real</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper tenor-trombone trombone brass fire yellow-brass">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/flamethrower-tenor-trombone.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('flamethrower-tenor')">Flamethrower Tenor</h3>
+                        <p class="tooltip-description">> A firey trombone.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('tenor-trombone')">tenor-trombone</span>
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('fire')">fire</span>
+                            <span class="tag" onclick="goToTag('yellow-brass')">yellow-brass</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper trombone tenor-trombone brass silver transparent">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/silver-transparent-tenor-trombone.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('silver-transparent-tenor-trombone')">Silver Plated Tenor Trombone</h3>
+                        <p class="tooltip-description">> Parts of this image are transparent, to make it look like it's reflecting it's surroundings. Try downloading and pasting it onto a colourful background.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('tenor-trombone')">tenor-trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('silver')">silver</span>
+                            <span class="tag" onclick="goToTag('transparent')">transparent</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper trumpet brass yellow-brass">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/trumpet.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('trumpet')">Trumpet</h3>
+                        <p class="tooltip-description">> Just your everyday Bb trumpet.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('trumpet')">trumpet</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('yellow-brass')">yellow brass</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper tenor-trombone trombone brass yellow-brass">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/tenor-trombone.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('tenor-trombone')">Tenor Trombone</h3>
+                        <p class="tooltip-description">> The original trombone sprite that I made back in 2017.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('tenor-trombone')">tenor-trombone</span>
+                            <span class="tag" onclick="goToTag('trombone')">trombone</span>
+                            <span class="tag" onclick="goToTag('brass')">brass</span>
+                            <span class="tag" onclick="goToTag('yellow-brass')">yellow-brass</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper">
+                    <div class="background discord-wrapper">
+                        <p><a href="https://discord.gg/uhbADMj" id="invite">https://discord.gg/uhbADMj</a></p>
+                        <p>> Join my discord server! Request art and/or share your own creations. Or just chill out and meet some new friends :)</p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper phantom-of-the-opera">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/pizza-rolls.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('pizza-rolls')">Phantom Pizza Rolls</h3>
+                        <p class="tooltip-description">> He's holding a box of pizza rolls. (it was an inside joke in the Phantom of the Opera fandom a few years ago, when I drew this).</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('phantom-of-the-opera')">phantom-of-the-opera</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper phantom-of-the-opera">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/don-juan.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('don-juan')">Don Juan</h3>
+                        <p class="tooltip-description">> The Phantom's Don Juan costume during the Point of No Return song.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('phantom-of-the-opera')">phantom-of-the-opera</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper phantom-of-the-opera">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/aminta.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('aminta')">Aminta</h3>
+                        <p class="tooltip-description">> Christine's Aminta costume during the Point of No Return song.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('phantom-of-the-opera')">phantom-of-the-opera</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper phantom-of-the-opera">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/monkey-music-box.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('monkey-music-box')">Monkey Music Box</h3>
+                        <p class="tooltip-description">> The Phantom's monkey music box.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('phantom-of-the-opera')">phantom-of-the-opera</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper phantom-of-the-opera">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/winslow.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('winslow')">Winslow Leach</h3>
+                        <p class="tooltip-description">> From Phantom of the Paradise, my favourite campy cult film. I made this several years ago and I'd like to hope that my art has improved since then.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('phantom-of-the-opera')">phantom-of-the-opera</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper phantom-of-the-opera">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/point-of-no-return.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('point-of-no-return')">The Point of No Return</h3>
+                        <p class="tooltip-description">> The second to last scene of, you guessed it, Phantom of the Opera.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('phantom-of-the-opera')">phantom-of-the-opera</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper phantom-of-the-opera">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/firmin.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('firmin')">Firmin</h3>
+                        <p class="tooltip-description">> Firmin's masquerade costume. He's one of the manager dudes of the opera house in Phantom of the Opera.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('phantom-of-the-opera')">phantom-of-the-opera</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper phantom-of-the-opera">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/andre.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('andre')">André</h3>
+                        <p class="tooltip-description">> André's masquerade costume. He's the other manager dude of the opera house in Phantom of the Opera. Btw that's a skeleton suit he's wearing.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('phantom-of-the-opera')">phantom-of-the-opera</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper phantom-of-the-opera">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/red-death.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('red-death')">Red Death</h3>
+                        <p class="tooltip-description">> The Phantom, all dressed up to ruin the masquerade ball.</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('phantom-of-the-opera')">phantom-of-the-opera</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="item-wrapper phantom-of-the-opera">
+                    <div class="background">
+                        <img src="../../../perm-resources/images/gallery/phantom-and-christine.png" class="picture">
+                    </div>
+                    <div class="tooltip">
+                        <h3 class="tooltip-title" onclick="goTo('phantom-and-christine')">The Phantom and Christine</h3>
+                        <p class="tooltip-description">> A scene from The Phantom of the Opera. The quality of this image is kinda bad, because I stole it off my tumblr (cuz I lost the original)</p>
+                        <p class="tooltip-tags">Tags:
+                            <span class="tag" onclick="goToTag('phantom-of-the-opera')">phantom-of-the-opera</span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p class="infooter">
+            <span class="linkblock">Website and Art by Janice Chung</span>
+            <span class="linkblock">Created 28/03/19</span>
+            <span class="linkblock">Updated 05/10/19</span>
+            <span class="linkblock"><u class="fakelink" onclick="window.history.back()">Go Back</u></span>
+            <span class="linkblock"><a href="#top">Back to Top ↑</a></span>
+        </p>
+    </div>
+</body>
+    
+<script>
+    
+document.getElementById("javascript-required").style.display = "none"; // only show the message if javascript is not supported
+document.getElementById("help").style.display = "none";
+document.getElementById("filters").style.display = "none";
+document.getElementById("about").style.display = "none";
+    
+document.getElementById("tag-instruments").style.display = "none";
+document.getElementById("tag-colours").style.display = "none";
+document.getElementById("tag-types").style.display = "none";
+document.getElementById("tag-brands").style.display = "none";
+document.getElementById("tag-other").style.display = "none";
+    
+function toggle(element) {
+    var parent = element.substr(4);
+    element = document.getElementById(element);
+    if (element.style.display === "none") {
+        // show it
+        element.style.display = "block";
+        document.getElementById(parent).innerHTML = "↑ " + document.getElementById(parent).innerHTML.substr(2);
+        document.getElementById(parent).classList.add("pink-text");
+    } else {
+        // hide it
+        element.style.display = "none";
+        document.getElementById(parent).innerHTML = "↓ " + document.getElementById(parent).innerHTML.substr(2);
+        document.getElementById(parent).classList.remove("pink-text");
+    }
+}
+    
+var descriptionsHidden = true;
+var tooltipElements = document.getElementsByClassName("tooltip");
+function toggleDescription() {
+    if (descriptionsHidden == true) {
+        // show them
+        document.getElementById("toggle-description").innerHTML = "Hide Image Descriptions";
+        descriptionsHidden = false;
+        for (var i = 0; i < tooltipElements.length; i++) {
+            tooltipElements[i].style.visibility = "visible";
+        }
+    } else {
+        // hide them
+        document.getElementById("toggle-description").innerHTML = "Show Image Descriptions";
+        descriptionsHidden = true;
+        for (var i = 0; i < tooltipElements.length; i++) {
+            tooltipElements[i].style.visibility = "";
+        }
+    }
+}
+var helpHidden = true;
+function toggleHelp() {
+    if (helpHidden == true) {
+        // show it
+        document.getElementById("toggle-help").innerHTML = "Hide Help";
+        document.getElementById("help").style.display = "block";
+        helpHidden = false;
+    } else {
+        // hide it
+        document.getElementById("toggle-help").innerHTML = "Help";
+        document.getElementById("help").style.display = "none";
+        helpHidden = true;
+    }
+}
+var filtersHidden = true;
+function toggleFilters() {
+    if (filtersHidden == true) {
+        // show them
+        document.getElementById("toggle-filters").innerHTML = "Hide Filters";
+        document.getElementById("filters").style.display = "block";
+        filtersHidden = false;
+    } else {
+        // hide them
+        document.getElementById("toggle-filters").innerHTML = "Filters";
+        document.getElementById("filters").style.display = "none";
+        filtersHidden = true;
+    }
+}
+   
+    
+var aboutHidden = true;
+function toggleAbout() {
+    if (aboutHidden == true) {
+        // show it
+        document.getElementById("toggle-about").innerHTML = "Hide About Me";
+        document.getElementById("about").style.display = "block";
+        aboutHidden = false;
+    } else {
+        // hide it
+        document.getElementById("toggle-about").innerHTML = "About Me";
+        document.getElementById("about").style.display = "none";
+        aboutHidden = true;
+    }
+}
+    
+function goTo(imageName) {
+    window.open(("https://tetraphosphate.github.io/perm-resources/images/gallery/" + imageName + ".png"), "_blank");
+}
+var allItems = document.getElementsByClassName("item-wrapper");
+function goToTag(tagName) {
+    for (var i = 0; i < allItems.length; i++) {
+        // for each item on the page,
+        if (allItems[i].classList.contains(tagName)) {
+            // show if it has that class
+            allItems[i].style.display = "flex";
+        } else {
+            // otherwise hide it
+            allItems[i].style.display = "none";
+        }
+    }
+    document.getElementById("selected").innerHTML = tagName;
+}
+function resetTags() {
+    // show all items
+    document.getElementById("selected").innerHTML = "none";
+    for (var i = 0; i < allItems.length; i++) {
+        allItems[i].style.display = "flex";
+    }
+}
+    
+</script>
+
+</html>
