@@ -31,7 +31,7 @@
                 <p>> Hover over an image (or tap, on a mobile device) to view more details. Or click on "Show/Hide Image Descriptions" to show or hide them all.</p>
                 <p>> Clicking on the name of an image will open it in a new tab.</p>
                 <p>> Clicking on one of the tags will show all images with that tag.</p>
-                <p>> The images with the checkerboard pattern behind them have partially transparent pixels in them (i.e. has an alpha channel as well as RGB). <span id="toggle-transparent-example" onclick="toggleTransparentExample()" class="fakelink">Click to show example.</span></p>
+                <p>> The images with the checkerboard pattern behind them have partially transparent pixels in them (i.e. has an alpha channel as well as RGB). Try downloading and pasting one of those images onto a patterned background, or <span id="toggle-transparent-example" onclick="toggleTransparentExample()" class="fakelink">click here to show an example</span>.</p>
                 <img src="./images/transparent-example.png" id="transparent-example" class="inline-image">
                 <p>> This site is entirely cookie free, but not bug free. If you find any bugs or glitches please let me know! (contact info under "About Me")</p>
             </div>
@@ -652,12 +652,12 @@ var transparentExampleHidden = true;
 function toggleTransparentExample() {
     if (transparentExampleHidden == true) {
         // show it
-        document.getElementById("toggle-transparent-example").innerHTML = "Click to hide example.";
+        document.getElementById("toggle-transparent-example").innerHTML = "click here to hide the example";
         document.getElementById("transparent-example").style.display = "block";
         transparentExampleHidden = false;
     } else {
         // hide it
-        document.getElementById("toggle-transparent-example").innerHTML = "Click to show example.";
+        document.getElementById("toggle-transparent-example").innerHTML = "click here to show an example";
         document.getElementById("transparent-example").style.display = "none";
         transparentExampleHidden = true;
     }
