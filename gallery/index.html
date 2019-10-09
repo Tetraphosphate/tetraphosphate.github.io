@@ -17,7 +17,7 @@
             
             <p id="navigation">
                 <span id="toggle-description" class="linkblock" onclick="toggleDescription()">Show Image Descriptions</span>
-                <span id="toggle-help" class="linkblock" onclick="toggleHelp()">Help</span>
+                <span id="toggle-help" class="linkblock" onclick="toggleHelp()">Hide Help</span>
                 <span id="toggle-about" class="linkblock" onclick="toggleAbout()">About Me</span>
                 <span id="toggle-filters" class="linkblock" onclick="toggleFilters()">Filters</span>
             </p>
@@ -27,11 +27,12 @@
             </div>
             
             <div id="help" class="paragraph">
-                <h3 onclick="toggleHelp()">Help (and other info)</h3>
+                <h3 onclick="toggleHelp()">Help (click to hide)</h3>
                 <p>> Hover over an image (or tap, on a mobile device) to view more details. Or click on "Show/Hide Image Descriptions" to show or hide them all.</p>
                 <p>> Clicking on the name of an image will open it in a new tab.</p>
                 <p>> Clicking on one of the tags will show all images with that tag.</p>
-                <p>> The images with a pink stripe behind them have partially transparent pixels in them.</p>
+                <p>> The images with the checkerboard pattern behind them have partially transparent pixels in them (i.e. has an alpha channel as well as RGB).</p>
+                <img src="./images/transparent-example.png" class="inline-image">
                 <p>> This site is entirely cookie free, but not bug free. If you find any bugs or glitches please let me know! (contact info under "About Me")</p>
             </div>
             
