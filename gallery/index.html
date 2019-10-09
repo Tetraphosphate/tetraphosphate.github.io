@@ -624,7 +624,6 @@
 document.getElementById("javascript-required").style.display = "none"; // only show the message if javascript is not supported
 document.getElementById("filters").style.display = "none";
 document.getElementById("about").style.display = "none";
-document.getElementById("transparent-example").style.display = "none";
     
 document.getElementById("tag-instruments").style.display = "none";
 document.getElementById("tag-colours").style.display = "none";
@@ -645,21 +644,6 @@ function toggle(element) {
         element.style.display = "none";
         document.getElementById(parent).innerHTML = "↓ " + document.getElementById(parent).innerHTML.substr(2);
         document.getElementById(parent).classList.remove("pink-text");
-    }
-}
-    
-var transparentExampleHidden = true;
-function toggleTransparentExample() {
-    if (transparentExampleHidden == true) {
-        // show it
-        document.getElementById("toggle-transparent-example").innerHTML = "click here to hide the example";
-        document.getElementById("transparent-example").style.display = "block";
-        transparentExampleHidden = false;
-    } else {
-        // hide it
-        document.getElementById("toggle-transparent-example").innerHTML = "click here to show an example";
-        document.getElementById("transparent-example").style.display = "none";
-        transparentExampleHidden = true;
     }
 }
     
