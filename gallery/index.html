@@ -31,8 +31,7 @@
                 <p>> Hover over an image (or tap, on a mobile device) to view more details. Or click on "Show/Hide Image Descriptions" to show or hide them all.</p>
                 <p>> Clicking on the name of an image will open it in a new tab.</p>
                 <p>> Clicking on one of the tags will show all images with that tag.</p>
-                <p>> The images with the checkerboard pattern behind them have partially transparent pixels in them (i.e. has an alpha channel as well as RGB). Try downloading and pasting one of those images onto a patterned background, or <span id="toggle-transparent-example" onclick="toggleTransparentExample()" class="fakelink">click here to show an example</span>.</p>
-                <img src="./images/transparent-example.png" id="transparent-example" class="inline-image">
+                <p>> The images tagged with <span class="tag-name" onclick="goToTag('transparent')">transparent</span> have partially transparent pixels in them. Try downloading the images and pasting them onto a patterned background.</p>
                 <p>> This site is entirely cookie free, but not bug free. If you find any bugs or glitches please let me know! (contact info under "About Me")</p>
             </div>
             
@@ -46,7 +45,7 @@
 
         <div id="filters" class="side">
             <h3 onclick="toggleFilters()">Filters</h3>
-            <p>Click on a tag to view images tagged with that tag.</p>
+            <p>Click on a tag to view images tagged with that tag, or alternatively click on "Show Image Descriptions" above and use your browser's search inside page function to search.</p>
             <p>> Selected: <span id="selected">none</span></p>
             <div class="filter-category">
                 <p id="instruments" onclick="toggle('tag-instruments')">↓ Instruments</p>
